@@ -17,7 +17,7 @@ stored.
 5. Map the IP address with its MAC address and return the MAC address to client.
 P
 ## PROGRAM - ARP
-### CLIENT:
+### Client:
 ```
 import socket
 s=socket.socket()
@@ -32,7 +32,7 @@ while True:
  except KeyError:
  c.send("Not Found".encode())
 ```
-### SERVER:
+### Server:
 ```
 import socket
 s=socket.socket()
@@ -49,12 +49,12 @@ REG NO:
 ### Server:
 ![307230858-9036605f-01af-4e34-8483-49126ae2bce2](https://github.com/Kowsalyasathya/2c.ARP_RARP_PROTOCOLS/assets/118671457/1096f6c8-74af-4e1a-998b-45f4f436ac0f)
 ## ALGORITHM FOR RARP:
-### CLIENT
+### Client:
 1.Start the programUsing datagram sockets UDP function is established.
 2.Get the MAC address to be converted into IP address.
 3.Send this MAC address to server.
 4.Server returns the IP address to client.
-### SERVER
+### Server:
 1.Start the program.
 2.Server maintains the table in which IP and corresponding MAC addresses are stored.
 3.Read the MAC address which is send by the client.
@@ -77,18 +77,13 @@ while True:
 ```
 ### Server:
 ```
-ALGORITHM FOR RARP:
-CLIENT
-Start the program
-Using datagram sockets UDP function is established.
-Get the MAC address to be converted into IP address.
-Send this MAC address to server.
-Server returns the IP address to client.
-SERVER
-Start the program.
-Server maintains the table in which IP and corresponding MAC addresses are stored.
-Read the MAC address which is send by the client.
-Map the IP address with its MAC address and return the IP address to client.
+import socket 
+s=socket.socket() 
+s.connect(('localhost',9000)) 
+while True: 
+    ip=input("Enter MAC Address : ") 
+    s.send(ip.encode()) 
+    print("Logical Address",s.recv(1024).decode())
 ```
 ## OUPUT -RARP
 ### Client:
